@@ -1,7 +1,7 @@
 import { UserLogin } from "../interfaces/UserLogin";
 
 const login = async (userInfo: UserLogin) => {
-  // TODO: make a POST request to the login route
+  // DONE: make a POST request to the login route
   try{
     const response = await fetch('auth/login', {
       method: 'POST',
@@ -12,8 +12,7 @@ const login = async (userInfo: UserLogin) => {
     });
 
     if(!response.ok){
-      const errorData = await response.json();
-      throw new Error(`Error: ${errorData.message}`);
+      throw new Error(`Failed to retrieve user data. Check the network tab.`);
     }
 
     const data = await response.json();
