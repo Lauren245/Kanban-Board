@@ -8,12 +8,13 @@ const retrieveUsers = async () => {
         Authorization: `Bearer ${Auth.getToken()}`
       }
     });
-    const data = await response.json();
+   
 
     if(!response.ok) {
       throw new Error('invalid user API response, check network tab!');
     }
 
+    const data = await response.json();
     return data;
 
   } catch (err) { 
